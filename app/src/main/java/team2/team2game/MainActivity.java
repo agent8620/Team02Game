@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.TranslateAnimation;
+import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
         setContentView(R.layout.activity2);
+
     }
 
     @Override
