@@ -40,15 +40,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity2);
     }
 
-    public void ClickText(View v1){
-        final Button textView = (Button)findViewById(R.id.tx1);
-        final View v = findViewById(R.id.q2);
-        // this is the view on which you will listen for touch events
-
-        textView.setText("Touch coordinates : " + v.getHeight() + " " + v.getWidth()
-        );
-    }
-
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
