@@ -26,6 +26,9 @@ public class StartActivity extends AppCompatActivity {
     public void Story(View v){
         startActivity(new Intent(StartActivity.this,StoryActivity.class));
     }
+    public void Settings(View v){
+        startActivity(new Intent(StartActivity.this,StoryActivity.class));
+    }
 
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
