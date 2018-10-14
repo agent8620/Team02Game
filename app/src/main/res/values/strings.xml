@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Team2Game</string>
+    <string name="ImageItem">ItemsPattern</string>
+    <string name="ImagePlayer">Player</string>
 </resources>
