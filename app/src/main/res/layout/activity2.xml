@@ -28,17 +28,30 @@
 
     </RelativeLayout>
 
+    <Button
+        android:id="@+id/Menu"
+        android:layout_width="66dp"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:contentDescription="@string/Menu"
+        android:onClick="openMenu"
+        android:text="@string/Menu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/player"
-        android:contentDescription="@string/ImagePlayer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="162dp"
-        android:layout_marginEnd="191dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="64dp"
         android:layout_marginBottom="16dp"
+        android:contentDescription="@string/ImagePlayer"
         android:scaleType="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.222"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/cat" />
 
@@ -48,13 +61,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:scaleType="center"
-        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="162dp"
-        tools:layout_editor_absoluteY="522dp" />
+        tools:layout_editor_absoluteY="-100dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/debugWall"
-        android:contentDescription=""
+        android:contentDescription="@string/Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=""

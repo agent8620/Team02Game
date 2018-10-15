@@ -18,9 +18,10 @@ public class StoryActivity extends AppCompatActivity {
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
         setContentView(R.layout.activity3);
     }
-
-
-
+/*
+Данила я тут
+This game is about a cat that was born in a cave and he has to survive there day by day. Every day is like a challenge for him so your mission is to help him! Different loot falls from above and you have to avoid dangerous ones and collect useful ones!
+*/
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);

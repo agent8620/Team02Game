@@ -2,4 +2,10 @@
     <string name="app_name">Team2Game</string>
     <string name="ImageItem">ItemsPattern</string>
     <string name="ImagePlayer">Player</string>
+    <string name="Button">Button</string>
+    <string name="Menu">menu</string>
+    <string name="Exit">Exit</string>
+    <string name="Join">Join to</string>
+    <string name="Settings">Settings</string>
+    <string name="Story">Story</string>
 </resources>

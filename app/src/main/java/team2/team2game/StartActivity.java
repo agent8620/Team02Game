@@ -22,12 +22,20 @@ public class StartActivity extends AppCompatActivity {
 
     public void Join(View v){
         startActivity(new Intent(StartActivity.this,MainActivity.class));
+        overridePendingTransition(R.anim.fadein,R.anim.fadeout);
     }
     public void Story(View v){
         startActivity(new Intent(StartActivity.this,StoryActivity.class));
+        overridePendingTransition(R.anim.fadein,R.anim.fadeout);
     }
     public void Settings(View v){
-        startActivity(new Intent(StartActivity.this,StoryActivity.class));
+        startActivity(new Intent(StartActivity.this,SettingsActivity.class));
+        overridePendingTransition(R.anim.fadein,R.anim.fadeout);
+    }
+
+    public void Exit(View v){
+        finish();
+        System.exit(0);
     }
 
     @Override
