@@ -8,4 +8,8 @@
     <string name="Join">Join to</string>
     <string name="Settings">Settings</string>
     <string name="Story">Story</string>
+    <string name="back_to_menu">BACK TO MENU</string>
+    <string name="play_again">Play Again</string>
+    <string name="score">Score</string>
+    <string name="you_ve_failed">You\'ve failed!</string>
 </resources>
