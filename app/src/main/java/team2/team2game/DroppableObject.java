@@ -54,6 +54,10 @@ public class DroppableObject
         return this.Name;
     }
 
+    public void setName(String name) {
+        this.Name=name;
+    }
+
     @Override
     public void finalize(){
 
