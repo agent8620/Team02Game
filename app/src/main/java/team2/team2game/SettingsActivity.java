@@ -1,9 +1,8 @@
 package team2.team2game;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class SettingsActivity extends AppCompatActivity {
+public class SettingsActivity extends SampleActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

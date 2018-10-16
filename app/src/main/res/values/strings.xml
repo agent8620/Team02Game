@@ -1,5 +1,6 @@
 <resources>
-    <string name="app_name">Team2Game</string>
+    <string name="app_name">RVT/d42/Team2</string>
+    <string name="app_fullname">[EN] Game of dungeons and cats by RVT/d42/Team2. 2018</string>
     <string name="ImageItem">ItemsPattern</string>
     <string name="ImagePlayer">Player</string>
     <string name="Button">Button</string>

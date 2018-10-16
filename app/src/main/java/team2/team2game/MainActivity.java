@@ -1,41 +1,24 @@
 package team2.team2game;
 
-import android.animation.Animator;
-import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.graphics.Point;
-import android.os.Handler;
 import android.support.constraint.ConstraintLayout;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.view.animation.LinearInterpolator;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.view.Display;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.util.ArrayList;
 import java.util.Locale;
-import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends SampleActivity {
 
-    private int Walls[] = new int[]{
-            R.drawable.wall1,
-            R.drawable.wall2,
-            R.drawable.wall3
-    };
-
-    private int wall=0;
     final private MainActivity main = this;
     private RelativeLayout layoutTop,layoutBottom;
     public boolean debug = true;
@@ -80,7 +63,8 @@ public class MainActivity extends AppCompatActivity {
 
         displaySize = getDisplaySizeInternal();
 
-        LayoutsetDefault();
+        startAnimations();
+
         updateTimer = new Timer();
         updateTimer.scheduleAtFixedRate(new TimerTask() {
             @Override
@@ -176,74 +160,12 @@ public class MainActivity extends AppCompatActivity {
         overridePendingTransition(R.anim.fadein,R.anim.fadeout);
     }
 
-    private void LayoutsetDefault(){
-        layoutBottom = findViewById(R.id.backgroundBottom);
-        layoutTop = findViewById(R.id.backgroundTop);
-
-        final ValueAnimator animator = ValueAnimator.ofFloat(0.00f, 1.0f);
-        animator.setRepeatCount(ValueAnimator.INFINITE);
-        animator.setInterpolator(new LinearInterpolator());
-        animator.setDuration(100000L);
-
-        animator.addListener(new ValueAnimator.AnimatorListener() {
-            @Override
-            public void onAnimationStart(Animator animator) {}
-
-            @Override
-            public void onAnimationEnd(Animator animator) {}
-
-            @Override
-            public void onAnimationCancel(Animator animator) {}
-
-            @Override
-            public void onAnimationRepeat(Animator animator) {
-                if(Walls.length-1 == wall){
-                    wall  = -1;
-                }
-                layoutBottom.setBackground(layoutTop.getBackground());
-                layoutTop.setBackground( ContextCompat.getDrawable(main,Walls[++wall]));
-            }
-        });
-        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                final float progress = (float) animation.getAnimatedValue();
-                final float height = layoutBottom.getHeight();
-                final float translationY = height * progress;
-                layoutBottom.setTranslationY(translationY);
-                layoutTop.setTranslationY(translationY - height);
-
-                if(debug){
-                    Button but = findViewById(R.id.debugWall);
-                    but.setVisibility(View.VISIBLE);
-                    but.setText(String.format(Locale.getDefault(),"%.5f",progress));
-                }
-            }
-        });
-        new Handler().postDelayed(
-            new Runnable(){
-                @Override
-                public void run() {
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            animator.start();
-                        }
-                    });
-                }},1000);
+    private void startAnimations() {
+        new Animations(new int[]{
+                R.drawable.wall1,
+                R.drawable.wall2,
+                R.drawable.wall3
+        },main).WallFall();
     }
 
-    @Override
-    public void onWindowFocusChanged(boolean hasFocus) {
-        super.onWindowFocusChanged(hasFocus);
-        if (hasFocus) {
-            getWindow().getDecorView().setSystemUiVisibility(
-                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                            | View.SYSTEM_UI_FLAG_FULLSCREEN
-                            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
-        }
-    }
 }
