@@ -12,7 +12,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.view.Display;
 import android.widget.TextView;
-import android.widget.Toast;
+
 import java.util.Locale;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -45,11 +45,6 @@ public class MainActivity extends SampleActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
-        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
         setContentView(R.layout.activity_main);
 
         constraintLayout = findViewById(R.id.mainLayout);
@@ -156,8 +151,7 @@ public class MainActivity extends SampleActivity {
     }
 
     public void openMenu(View v){
-        startActivity(new Intent(this,StartActivity.class));
-        overridePendingTransition(R.anim.fadein,R.anim.fadeout);
+        finish();
     }
 
     private void startAnimations() {
