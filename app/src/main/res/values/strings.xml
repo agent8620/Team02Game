@@ -12,4 +12,6 @@
     <string name="play_again">Play Again</string>
     <string name="score">Score</string>
     <string name="you_ve_failed">You\'ve failed!</string>
+    <string name="health_player">Player health</string>
+    <string name="Time">Alive time</string>
 </resources>

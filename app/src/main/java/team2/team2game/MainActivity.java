@@ -18,6 +18,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.view.Display;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -27,21 +28,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
-
-    private ObjectType types[] = new ObjectType[]{
-        new ObjectType("Apple",10, 1, R.drawable.apple, 68, 60),
-        new ObjectType("Bonus",10, 1, R.drawable.bonus, 34, 39),
-        new ObjectType("Brick",10, 1, R.drawable.brick, 113, 147),
-        new ObjectType("Cherry",10, 1, R.drawable.cherry, 63, 58),
-        new ObjectType("Dagger",10, 1, R.drawable.dagger, 163, 105),
-        new ObjectType("Death potion",10, 1, R.drawable.death_potion, 179, 97),
-        new ObjectType("Health potion",10, 1, R.drawable.health_potion, 68, 55),
-        new ObjectType("Pie",1, 10, R.drawable.pie, 144, 134),
-        new ObjectType("Rainbow sword",10, 1, R.drawable.rainbow, 0, 0),
-        new ObjectType("Rock",1, 10, R.drawable.stone, 620, 651),
-        new ObjectType("Sword",1, 10, R.drawable.sword, 244, 95),
-        new ObjectType("Chest",1, 10, R.drawable.trap, 142, 205),
-        new ObjectType("Trophy",1, 10, R.drawable.trophy, 116, 118)};
 
     private int Walls[] = new int[]{
             R.drawable.wall1,
@@ -60,10 +46,18 @@ public class MainActivity extends AppCompatActivity {
     private boolean isPressedRightSide = false;
 
     public static final long UPDATE_INTERVAL = 50; // = 20 FPS
-    private Timer timer = null;
+    private Timer updateTimer = null;
+    private Timer secondsTimer = null;
+
+    private TextView healthTextView = null;
+    private TextView timerTextView = null;
+
+    private int SurvivedSeconds = 0;
 
     private PlayerObject playerObject = null;
-    private ArrayList<DroppableObject> droppableObjList = new ArrayList<>();
+    private DroppableSpawner droppableSpawner = null;
+
+    private Point displaySize = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,24 +67,37 @@ public class MainActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
-        setContentView(R.layout.activity2);
+        setContentView(R.layout.activity_main);
+
         constraintLayout = findViewById(R.id.mainLayout);
         imgView = findViewById(R.id.player);
+
+        healthTextView = findViewById(R.id.healthTextView);
+        timerTextView = findViewById(R.id.timerTextView);
+
         playerObject = new PlayerObject(100, 20, imgView);
+        droppableSpawner = new DroppableSpawner(this);
 
-        if(!debug){
-            LayoutsetDefault();
-        }
-        timer = new Timer();
-        timer.scheduleAtFixedRate(new TimerTask() {
-                @Override
-                public void run() {
-                    runOnUiThread(new Runnable() { @Override public void run() { Update(); } });
-                    runOnUiThread(new Runnable() { @Override public void run() { }});
-                }
+        displaySize = getDisplaySizeInternal();
+
+        LayoutsetDefault();
+        updateTimer = new Timer();
+        updateTimer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                runOnUiThread(new Runnable() { @Override public void run() { Update();
+                    droppableSpawner.Update();} });
+            }
         }, UPDATE_INTERVAL, UPDATE_INTERVAL);
+        secondsTimer = new Timer();
+        secondsTimer.scheduleAtFixedRate(new TimerTask(){
+            @Override
+            public void run() {
+                runOnUiThread(new Runnable() { @Override public void run() { SecondsUpdate(); }});
+            }
+        }, 0, 1000);
 
-        dropNewDroppableObject();
+        droppableSpawner.Enable();
     }
 
     @Override
@@ -113,7 +120,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void Update (){
         handleCharacterMovement();
-        handleDroppableMovements();
+    }
+
+    private void SecondsUpdate (){
+        SurvivedSeconds++;
+        timerTextView.setText(String.format(Locale.getDefault(), "Alive: %d",SurvivedSeconds));
     }
 
     private void handleCharacterMovement (){
@@ -132,63 +143,32 @@ public class MainActivity extends AppCompatActivity {
         imgView.setLayoutParams(params);
     }
 
-    private Point getDisplaySize(){
+    private Point getDisplaySizeInternal(){
         Display display = getWindowManager().getDefaultDisplay();
         Point displaySize = new Point();
         display.getSize(displaySize);
         return displaySize;
     }
 
-    private void dropNewDroppableObject(){
-        DroppableObject obj = _spawnObject();
-        droppableObjList.add(obj);
+    public Point getDisplaySize (){
+        return this.displaySize;
     }
 
-    private DroppableObject _spawnObject (){
-        ImageView imageView = new ImageView(this);
-        imageView.setImageResource(R.drawable.apple);
-        ConstraintLayout.LayoutParams params = (ConstraintLayout.LayoutParams)findViewById(R.id.item).getLayoutParams();
-        params.setMarginStart(new Random().nextInt(getDisplaySize().x - params.width));
-        params.topMargin = -100;
-        imageView.setLayoutParams(params);
-        constraintLayout.addView(imageView);
-
-        return new DroppableObject("red apple",  types[0], imageView);
+    public ConstraintLayout getConstraintLayout(){
+        return this.constraintLayout;
     }
 
-    private void handleDroppableMovements (){
-        for (DroppableObject obj: droppableObjList){
-            ConstraintLayout.LayoutParams params = (ConstraintLayout.LayoutParams)obj.ImgView.getLayoutParams();
-            params.topMargin += obj.getSpeed();
-            obj.ImgView.setLayoutParams(params);
 
-            boolean intersected = isDroppableIntersectingPlayer(obj);
-            Point displaySize = getDisplaySize();
 
-            if (params.topMargin > displaySize.y){
-                Toast.makeText(this, "Object fallen away", Toast.LENGTH_LONG).show();
-                destroyDroppableObject(obj);
-            }
-            else if (intersected){
-                playerObject.Health += obj.getHealth();
-                Toast.makeText(this, "Object collected. New health: " + playerObject.Health, Toast.LENGTH_LONG).show();
-                destroyDroppableObject(obj);
-            }
-        }
-    }
-
-    private void destroyDroppableObject (DroppableObject obj){
-        droppableObjList.remove(obj);
-        constraintLayout.removeView(obj.ImgView);
-
-        dropNewDroppableObject();
-    }
-
-    private boolean isDroppableIntersectingPlayer (DroppableObject obj){
+    public boolean isDroppableIntersectingPlayer (DroppableObject obj){
         Rectangle playerRect = playerObject.getRectangle();
         Rectangle dropppableRect = obj.getRectangle();
-        //https://gamedev.stackexchange.com/questions/80834/making-a-collision-detection-for-imageviews
         return playerRect.IsIntersecting(dropppableRect);
+    }
+
+    public void AddHealthToPlayer (int health){
+        this.playerObject.Health += health;
+        this.healthTextView.setText(String.format(Locale.getDefault(), "HP: %d", this.playerObject.Health));
     }
 
     public void openMenu(View v){

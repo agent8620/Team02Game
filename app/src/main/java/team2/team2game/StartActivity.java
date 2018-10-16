@@ -17,7 +17,7 @@ public class StartActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
-        this.setContentView(R.layout.activity1);
+        this.setContentView(R.layout.activity_start);
     }
 
     public void Join(View v){

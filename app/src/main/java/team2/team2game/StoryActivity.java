@@ -16,7 +16,7 @@ public class StoryActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
-        setContentView(R.layout.activity3);
+        setContentView(R.layout.activity_story);
     }
 /*
 Данила я тут
