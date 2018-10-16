@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
         imgView = findViewById(R.id.player);
         playerObject = new PlayerObject(100, 20, imgView);
 
-        if(!debug){
+        if(debug){
             LayoutsetDefault();
         }
         timer = new Timer();
@@ -203,7 +203,7 @@ public class MainActivity extends AppCompatActivity {
         final ValueAnimator animator = ValueAnimator.ofFloat(0.00f, 1.0f);
         animator.setRepeatCount(ValueAnimator.INFINITE);
         animator.setInterpolator(new LinearInterpolator());
-        animator.setDuration(100000L);
+        animator.setDuration(10000L);
 
         animator.addListener(new ValueAnimator.AnimatorListener() {
             @Override
