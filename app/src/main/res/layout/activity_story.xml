@@ -1,22 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/catstorybackgr"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".StoryActivity">
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="299dp"
-        android:layout_height="231dp"
-        android:fontFamily="@font/aldrich"
-        android:lineSpacingExtra="8sp"
-        android:text="This game is about a cat that was born in a cave and he has to survive there day by day. Every day is like a challenge for him so your mission is to help him! Different loot falls from above and you have to avoid dangerous ones and collect useful ones!"
-        android:textAlignment="viewStart"
-        android:textColor="@android:color/background_light"
-        android:textSize="18sp"
-        tools:layout_editor_absoluteX="54dp"
-        tools:layout_editor_absoluteY="44dp"
-        tools:ignore="MissingConstraints" />
 </android.support.constraint.ConstraintLayout>
