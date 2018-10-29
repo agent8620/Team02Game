@@ -12,15 +12,15 @@
         android:id="@+id/backgroundTop"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/wall2"
+        android:background="@drawable/wall1"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/backgroundBottom"
         app:layout_constraintTop_toTopOf="parent"/>
     <RelativeLayout
         android:id="@+id/backgroundBottom"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/wall1"
-        app:layout_constraintBottom_toTopOf="@+id/backgroundTop"
+        android:background="@drawable/wall0"
         app:layout_constraintStart_toStartOf="parent"/>
 
 
@@ -40,14 +40,14 @@
         android:id="@+id/player"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginEnd="64dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
         android:layout_marginBottom="64dp"
         android:contentDescription="@string/ImagePlayer"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.617"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/cat" />
 

@@ -15,7 +15,7 @@ class DroppableDefinitions {
             new DroppableAsset("Health potion",40, 25, R.drawable.health_potion, 68, 55),
             new DroppableAsset("Pie",40, 16, R.drawable.pie, 144, 134),
             new DroppableAsset("Rainbow sword",40, -49, R.drawable.rainbow, 50, 50),
-            new DroppableAsset("Rock",40, -100, R.drawable.stone, 620, 651),
+            new DroppableAsset("Rock",40, -99, R.drawable.stone, 620, 651),
             new DroppableAsset("Sword",40, -40, R.drawable.sword, 244, 95),
             new DroppableAsset("Chest",40, -60, R.drawable.trap, 142, 205),
             new DroppableAsset("Trophy",40, -71, R.drawable.trophy, 116, 118)};

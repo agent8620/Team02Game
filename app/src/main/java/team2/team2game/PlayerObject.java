@@ -4,20 +4,20 @@ import android.graphics.Point;
 import android.graphics.Rect;
 import android.widget.ImageView;
 
-public class PlayerObject
+class PlayerObject
 {
-    public int Health;
-    public double Speed;
-    public ImageView ImgView;
+    int Health;
+    double Speed;
+    private ImageView ImgView;
 
-    public PlayerObject (int health, double speed, ImageView imgView)
+    PlayerObject (int health, double speed, ImageView imgView)
     {
         this.Health = health;
         this.Speed = speed;
         this.ImgView = imgView;
     }
 
-    public Rectangle getRectangle (){
+    Rectangle getRectangle (){
         if(ImgView == null) return null;
         Rectangle rect = new Rectangle();
         rect.LeftUpperPoint = new Point(ImgView.getLeft(),ImgView.getTop());

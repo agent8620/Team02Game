@@ -3,8 +3,6 @@ package team2.team2game;
 import android.graphics.Point;
 import android.support.constraint.ConstraintLayout;
 import android.widget.ImageView;
-import android.widget.Toast;
-
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -72,12 +70,13 @@ class DroppableSpawner {
             if (params.topMargin > displaySize.y){
                 //Toast.makeText(this, "Object fallen away", Toast.LENGTH_LONG).show();
                 destroyDroppableObject(obj);
+                gameActivity.OnDroppableObjectPassed(obj.getObjectType());
             }
             else if (intersected){
                 //gameActivity.playerObject.Health += obj.getHealth();
                 //Toast.makeText(this, "Object collected. New health: " + playerObject.Health, Toast.LENGTH_LONG).show();
-                gameActivity.AddHealthToPlayer(obj.getObjectType().getHealth());
                 destroyDroppableObject(obj);
+                gameActivity.OnDroppableObjectCatch(obj.getObjectType());
             }
         }
     }
