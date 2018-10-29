@@ -19,7 +19,7 @@ class Animations {
     private int Textures[];
     private int texture = 1;
     static boolean Cancel = false;
-    private ValueAnimator animator = null;
+    private ValueAnimator animator;
     private MainActivity main;
 
     Animations(int[] textures, MainActivity main) {
@@ -64,7 +64,7 @@ class Animations {
                 layoutTop.setTranslationY(translationY - height);
                 layoutBottom.setTranslationY(translationY*1.5f);
 
-                if(main.debug != 0){
+                if(MainActivity.debug != 0){
                     Button but = main.findViewById(R.id.debugWall);
                     but.setVisibility(View.VISIBLE);
                     but.setText(String.format(Locale.getDefault(),"%.5f",progress));

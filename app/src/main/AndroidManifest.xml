@@ -48,7 +48,12 @@
                 <action android:name="android.intent.action.ANSWER" />
             </intent-filter>
         </activity>
-        <activity android:name=".InventoryActivity"></activity>
+        <activity android:name=".InventoryActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.ANSWER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
