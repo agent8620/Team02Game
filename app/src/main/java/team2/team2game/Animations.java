@@ -62,7 +62,7 @@ class Animations {
                 final float height = layoutBottom.getHeight();
                 final float translationY = height * progress;
                 layoutTop.setTranslationY(translationY - height);
-                layoutBottom.setTranslationY(translationY*1.5f);
+                layoutBottom.setTranslationY(translationY*0.9f);
 
                 if(MainActivity.debug != 0){
                     Button but = main.findViewById(R.id.debugWall);

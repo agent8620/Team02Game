@@ -1,9 +1,7 @@
 package team2.team2game;
 
 import android.content.Intent;
-import android.content.res.TypedArray;
 import android.graphics.Point;
-import android.icu.text.ScientificNumberFormatter;
 import android.support.constraint.ConstraintLayout;
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -161,7 +159,6 @@ public class MainActivity extends SampleActivity {
             ScoreDefinition.setLastAssetName(asset.getName());
             this.healthTextView.setText(getString(R.string.Dead));
             SaveScore();
-            Animations.Cancel = true;
             finish();
             startActivity(new Intent(this, DeathActivity.class));
             overridePendingTransition(R.anim.fadein,R.anim.fadeout);
@@ -178,12 +175,16 @@ public class MainActivity extends SampleActivity {
         ScoreDefinition.calculateScore();
         int score_previous = preferencesFunctions.loadInt("SCORE");
         preferencesFunctions.updateScore(score_previous);
+        Animations.Cancel = true;
+        updateTimer.cancel();
+        secondsTimer.cancel();
     }
 
     private void startAnimations() {
         new Animations(getIntArrayOf("wall",10),this).WallFall();
-
-        new Animations(getIntArrayOf("player_bob_",4),this).AnimatePlayer();
+        int[] arrayAnimations = getIntArrayOf("player_grey_",4);
+        this.imgView.setImageResource(arrayAnimations[0]);
+        new Animations(arrayAnimations,this).AnimatePlayer();
     }
 
     private int[] getIntArrayOf(String part, int lenght){

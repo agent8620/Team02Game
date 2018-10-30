@@ -18,4 +18,5 @@
     <string name="health_player">Player health</string>
     <string name="Time">Alive time</string>
     <string name="Dead">Dead</string>
+    <string name="closeButton">close</string>
 </resources>

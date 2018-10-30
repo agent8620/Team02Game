@@ -16,6 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/backgroundBottom"
         app:layout_constraintTop_toTopOf="parent"/>
+
     <RelativeLayout
         android:id="@+id/backgroundBottom"
         android:layout_width="match_parent"
