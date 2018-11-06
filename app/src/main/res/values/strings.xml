@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">RVT_Team02_game</string>
+    <string name="app_fullname">[EN] Game of dungeons and cats by RVT.d42.Team2. 2018</string>
+    <string name="ImageItem">ItemsPattern</string>
+    <string name="ImagePlayer">Player</string>
+    <string name="Button">Button</string>
+    <string name="Menu">menu</string>
+    <string name="Exit">Leave</string>
+    <string name="Join">Join</string>
+    <string name="Settings">Settings</string>
+    <string name="Inventory">Inventory</string>
+    <string name="Story">Story</string>
+    <string name="back_to_menu">BACK TO MENU</string>
+    <string name="play_again">Play Again</string>
+    <string name="score">Result</string>
+    <string name="you_ve_failed">You\'ve failed</string>
+    <string name="by">by</string>
+    <string name="health_player">Player health</string>
+    <string name="Time">Alive time</string>
+    <string name="Dead">Dead</string>
+    <string name="closeButton">close</string>
+    <string name="story">This game is about a cat that was born in a cave and he has to survive there day by day. Every day is like a challenge for him so your mission is to help him! Different loot falls from above and you have to avoid dangerous ones and collect useful ones! \n\n\n\nLearn this blessed wonderful and mystical world !!!</string>
+    <string name="version">beta 1.0.0</string>
+    <string name="random">RANDOM</string>
+    <string name="randomon">RANDOM ON</string>
+    <string name="randomoff">RANDOM OFF</string>
+    <string name="empty"></string>
+    <string name="v">✓</string>
+</resources>

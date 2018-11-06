@@ -1,0 +1,13 @@
+cat 48px
+apple 23.25px
+potionH 21px
+health 17.25px
+Rainbow 97.5px
+Brick 60px
+Cherry 22.5px
+DPotion 37.5px
+dagger 72.75px
+pie 95.25px
+sword 78px
+chest 78pxw
+trophy 49px

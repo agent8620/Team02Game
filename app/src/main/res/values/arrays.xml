@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <integer-array name="walls">
+        <item>@drawable/wall0</item>
+        <item>@drawable/wall1</item>
+        <item>@drawable/wall2</item>
+        <item>@drawable/wall3</item>
+        <item>@drawable/wall4</item>
+        <item>@drawable/wall5</item>
+        <item>@drawable/wall6</item>
+        <item>@drawable/wall7</item>
+        <item>@drawable/wall8</item>
+        <item>@drawable/wall9</item>
+    </integer-array>
+
+    <array name="players">
+        <item>player_baki_</item>
+        <item>player_bob_</item>
+        <item>player_cyany_</item>
+        <item>player_gold_</item>
+        <item>player_grey_</item>
+        <item>player_hide_</item>
+        <item>player_jacky_</item>
+        <item>player_rambo_</item>
+        <item>player_spike_</item>
+        <item>player_zomby_</item>
+    </array>
+
+    <integer-array name="player_baki">
+        <item>@drawable/player_baki_0</item>
+        <item>@drawable/player_baki_1</item>
+        <item>@drawable/player_baki_2</item>
+        <item>@drawable/player_baki_3</item>
+    </integer-array>
+
+    <integer-array name="player_bob">
+        <item>@drawable/player_bob_0</item>
+        <item>@drawable/player_bob_1</item>
+        <item>@drawable/player_bob_2</item>
+        <item>@drawable/player_bob_3</item>
+    </integer-array>
+
+    <integer-array name="player_cyany">
+        <item>@drawable/player_cyany_0</item>
+        <item>@drawable/player_cyany_1</item>
+        <item>@drawable/player_cyany_2</item>
+        <item>@drawable/player_cyany_3</item>
+    </integer-array>
+
+    <integer-array name="player_gold">
+        <item>@drawable/player_gold_0</item>
+        <item>@drawable/player_gold_1</item>
+        <item>@drawable/player_gold_2</item>
+        <item>@drawable/player_gold_3</item>
+    </integer-array>
+
+    <integer-array name="player_grey">
+        <item>@drawable/player_grey_0</item>
+        <item>@drawable/player_grey_1</item>
+        <item>@drawable/player_grey_2</item>
+        <item>@drawable/player_grey_3</item>
+    </integer-array>
+
+    <integer-array name="player_hide">
+        <item>@drawable/player_hide_0</item>
+        <item>@drawable/player_hide_1</item>
+        <item>@drawable/player_hide_2</item>
+        <item>@drawable/player_hide_3</item>
+    </integer-array>
+
+    <integer-array name="player_jacky">
+        <item>@drawable/player_jacky_0</item>
+        <item>@drawable/player_jacky_1</item>
+        <item>@drawable/player_jacky_2</item>
+        <item>@drawable/player_jacky_3</item>
+    </integer-array>
+
+    <integer-array name="player_rambo">
+        <item>@drawable/player_rambo_0</item>
+        <item>@drawable/player_rambo_1</item>
+        <item>@drawable/player_rambo_2</item>
+        <item>@drawable/player_rambo_3</item>
+    </integer-array>
+
+    <integer-array name="player_spike">
+        <item>@drawable/player_spike_0</item>
+        <item>@drawable/player_spike_1</item>
+        <item>@drawable/player_spike_2</item>
+        <item>@drawable/player_spike_3</item>
+    </integer-array>
+
+    <integer-array name="player_zomby">
+        <item>@drawable/player_zomby_0</item>s
+        <item>@drawable/player_zomby_1</item>
+        <item>@drawable/player_zomby_2</item>
+        <item>@drawable/player_zomby_3</item>
+    </integer-array>
+
+</resources>
